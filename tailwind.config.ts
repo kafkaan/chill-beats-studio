@@ -68,8 +68,8 @@ export default {
 				},
 			},
 			fontFamily: {
-				sans: ['Plus Jakarta Sans', 'ui-sans-serif', 'system-ui', 'sans-serif'],
-				display: ['Playfair Display', 'serif'],
+				sans: ['Manrope', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+				display: ['Fraunces', 'serif'],
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

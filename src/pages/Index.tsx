@@ -5,6 +5,8 @@ import heroDesk from "@/assets/hero-desk.jpg";
 import heroFireplace from "@/assets/hero-fireplace.jpg";
 import ControlPanel from "@/features/lofi/ControlPanel";
 import PomodoroTimer from "@/features/lofi/PomodoroTimer";
+import BackgroundPicker from "@/features/lofi/BackgroundPicker";
+import YouTubePlayer from "@/features/lofi/YouTubePlayer";
 
 const images = [
   { src: heroDefault, label: "Lofi" },
@@ -21,43 +23,31 @@ const Index = () => {
       {/* Hero background */}
       <div className="absolute inset-0 -z-10">
         <img src={bg} alt="Fond lofi pour la concentration" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-background/40 to-background/10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-background/20 to-background/0" />
       </div>
 
-      {/* Hero section */}
-      <section className="container mx-auto pt-20 pb-10">
+      {/* Hero section with discreet controls */}
+      <section className="container mx-auto pt-24 pb-8 relative">
+        <BackgroundPicker options={images} value={bg} onChange={setBg} />
         <div className="text-center animate-enter">
-          <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-4">
+          <h1 className="font-display text-5xl md:text-6xl font-bold tracking-tight mb-3">
             Lofi Focus Studio
           </h1>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Mixez des ambiances sonores et restez concentré(e) avec un minuteur Pomodoro élégant.
+            Mixez des ambiances et écoutez votre musique YouTube tout en restant concentré(e).
           </p>
-        </div>
-
-        {/* Image picker */}
-        <div className="mt-8 flex items-center justify-center gap-3">
-          {images.map((img) => (
-            <button
-              key={img.label}
-              onClick={() => setBg(img.src)}
-              className={`rounded-md overflow-hidden border hover-scale ${bg === img.src ? 'ring-2 ring-primary' : ''}`}
-              aria-label={`Choisir l'image ${img.label}`}
-            >
-              <img src={img.src} alt={`Arrière-plan ${img.label}`} className="h-16 w-24 object-cover" />
-            </button>
-          ))}
         </div>
       </section>
 
       {/* Studio section */}
       <section className="container mx-auto pb-16" id="studio">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 space-y-6">
             <ControlPanel />
           </div>
-          <div>
+          <div className="space-y-6">
             <PomodoroTimer />
+            <YouTubePlayer />
           </div>
         </div>
       </section>
