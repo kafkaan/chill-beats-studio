@@ -114,6 +114,15 @@ All colors MUST be HSL.
   }
 }
 
+@layer base {
+  /* Ensure dropdowns are opaque and above content */
+  [data-radix-popper-content-wrapper] { z-index: 60; }
+  [role="menu"], [data-radix-menu-content], [data-radix-popover-content] {
+    background-color: hsl(var(--popover));
+    color: hsl(var(--popover-foreground));
+  }
+}
+
 @layer utilities {
   .story-link {
     @apply relative inline-block after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-primary after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left;
